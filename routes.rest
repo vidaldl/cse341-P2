@@ -1,0 +1,75 @@
+
+### Get all contacts
+GET http://localhost:3000/contacts
+
+
+### Get single contact
+GET http://localhost:3000/contacts/66403cb753842981bbad3bd8
+
+
+
+### Create a contact
+POST http://localhost:3000/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Leo",
+    "lastName": "Vidal",
+    "email": "vidal@example.com",
+    "favoriteColor": "blue",
+    "birthday": "1997-05-15"
+}
+
+### Update a contact
+PUT http://localhost:3000/contacts/6640434a6963a73879dc33de HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Leonardo",
+    "lastName": "Vidal",
+    "email": "vidalOleaga@example.com",
+    "favoriteColor": "blue",
+    "birthday": "1997-05-15"
+}
+
+### Delete a contact
+DELETE http://localhost:3000/contacts/6640434a6963a73879dc33de
+
+
+
+// Server Calls
+### Get all contacts
+GET https://cse341-w01-501v.onrender.com/contacts
+
+
+### Get single contact
+GET https://cse341-w01-501v.onrender.com/contacts/66403cb753842981bbad3bda
+
+
+
+### Create a contact
+POST https://cse341-w01-501v.onrender.com/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Leo",
+    "lastName": "Vidal",
+    "email": "vidal@example.com",
+    "favoriteColor": "blue",
+    "birthday": "1997-05-15"
+}
+
+### Update a contact
+PUT https://cse341-w01-501v.onrender.com/contacts/6640462abaf4f49f87c963da HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Leonardo",
+    "lastName": "Vidal",
+    "email": "vidalOleaga@example.com",
+    "favoriteColor": "blue",
+    "birthday": "1997-05-15"
+}
+
+### Delete a contact
+DELETE https://cse341-w01-501v.onrender.com/contacts/6640462abaf4f49f87c963da
