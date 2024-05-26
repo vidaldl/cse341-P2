@@ -1,75 +1,71 @@
 
-### Get all contacts
-GET http://localhost:3000/contacts
+### Get all companies
+GET http://localhost:3000/companies
 
 
-### Get single contact
-GET http://localhost:3000/contacts/66403cb753842981bbad3bd8
+### Get single company
+GET http://localhost:3000/company/6652b33384b4949341f3da14
 
 
 
-### Create a contact
-POST http://localhost:3000/contacts HTTP/1.1
+### Create a company
+POST http://localhost:3000/company HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "Leo",
-    "lastName": "Vidal",
-    "email": "vidal@example.com",
-    "favoriteColor": "blue",
-    "birthday": "1997-05-15"
+    "name": "testCompany",
+    "address": "Rexburg Idaho",
+    "phone": "208-888-9101",
+    "email": "Test@test.com"
 }
 
-### Update a contact
-PUT http://localhost:3000/contacts/6640434a6963a73879dc33de HTTP/1.1
+### Update a company
+PUT http://localhost:3000/company/6640434a6963a73879dc33de HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName": "Leonardo",
-    "lastName": "Vidal",
-    "email": "vidalOleaga@example.com",
-    "favoriteColor": "blue",
-    "birthday": "1997-05-15"
+    "name": "new testCompany",
+    "address": "Idaho Falls",
+    "phone": "208-777-8202",
+    "email": "Test@test.com"
 }
 
-### Delete a contact
-DELETE http://localhost:3000/contacts/6640434a6963a73879dc33de
+### Delete a company
+DELETE http://localhost:3000/company/6640434a6963a73879dc33de
 
 
 
 // Server Calls
-### Get all contacts
-GET https://cse341-w01-501v.onrender.com/contacts
+### Get all companies
+GET https://cse341-p2-p2cj.onrender.com/companies
 
 
-### Get single contact
-GET https://cse341-w01-501v.onrender.com/contacts/66403cb753842981bbad3bda
+### Get single company
+GET https://cse341-p2-p2cj.onrender.com/company/66403cb753842981bbad3bda
 
 
 
-### Create a contact
-POST https://cse341-w01-501v.onrender.com/contacts HTTP/1.1
+### Create a company
+POST https://cse341-p2-p2cj.onrender.com/company HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "Leo",
-    "lastName": "Vidal",
-    "email": "vidal@example.com",
-    "favoriteColor": "blue",
-    "birthday": "1997-05-15"
+    "name": "testCompany",
+    "address": "Rexburg Idaho",
+    "phone": "208-888-9101",
+    "email": "Test@test.com"
 }
 
-### Update a contact
-PUT https://cse341-w01-501v.onrender.com/contacts/6640462abaf4f49f87c963da HTTP/1.1
+### Update a company
+PUT https://cse341-p2-p2cj.onrender.com/company/6640462abaf4f49f87c963da HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName": "Leonardo",
-    "lastName": "Vidal",
-    "email": "vidalOleaga@example.com",
-    "favoriteColor": "blue",
-    "birthday": "1997-05-15"
+    "name": "new testCompany",
+    "address": "Idaho Falls",
+    "phone": "208-777-8202",
+    "email": "Test@test.com"
 }
 
-### Delete a contact
-DELETE https://cse341-w01-501v.onrender.com/contacts/6640462abaf4f49f87c963da
+### Delete a company
+DELETE https://cse341-p2-p2cj.onrender.com/company/6640462abaf4f49f87c963da
