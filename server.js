@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const { errorHandler } = require('./middleware/errorHandler');
 const port = 3000;
 
 // Routes
@@ -10,7 +11,8 @@ app
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
   })
-  .use('/', require('./routes'));
+  .use('/', require('./routes'))
+  .use(errorHandler);
 
 const mongodb = require('./db/connect');
 

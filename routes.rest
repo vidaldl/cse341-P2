@@ -52,7 +52,7 @@ content-type: application/json
 {
     "name": "testCompany",
     "address": "Rexburg Idaho",
-    "phone": "208-888-9101",
+    "phone": "(208) 888-9101",
     "email": "Test@test.com"
 }
 
@@ -63,7 +63,7 @@ Content-Type: application/json
 {
     "name": "new testCompany",
     "address": "Idaho Falls",
-    "phone": "208-777-8202",
+    "phone": "(208) 888-9101",
     "email": "Test@test.com"
 }
 
