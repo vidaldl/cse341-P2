@@ -4,12 +4,14 @@ GET http://localhost:3000/companies
 
 
 ### Get single company
-GET http://localhost:3000/company/6652b33384b4949341f3da14
+GET http://localhost:3000/companies/6652b33384b4949341f3da14
+
+
 
 
 
 ### Create a company
-POST http://localhost:3000/company HTTP/1.1
+POST http://localhost:3000/companies HTTP/1.1
 content-type: application/json
 
 {
@@ -20,7 +22,7 @@ content-type: application/json
 }
 
 ### Update a company
-PUT http://localhost:3000/company/6640434a6963a73879dc33de HTTP/1.1
+PUT http://localhost:3000/companies/6640434a6963a73879dc33de HTTP/1.1
 Content-Type: application/json
 
 {
@@ -31,11 +33,63 @@ Content-Type: application/json
 }
 
 ### Delete a company
-DELETE http://localhost:3000/company/6640434a6963a73879dc33de
+DELETE http://localhost:3000/companies/6640434a6963a73879dc33de
 
 
 
+### Get vending machines associated with company
+GET http://localhost:3000/companies/6652b33384b4949341f3da15/vending
+
+
+
+
+// ***** Vending Machines ******
+  
+### Get all vending machines
+GET http://localhost:3000/vending
+
+
+### Get single vending machine
+GET http://localhost:3000/vending/6665098590a16465100f4a4a
+
+
+
+### Create a vending machine
+POST http://localhost:3000/vending HTTP/1.1
+content-type: application/json
+
+{
+    "address": "1001 Elm St, Dallas, TX",
+    "lat": "32.7767",
+    "long": "-96.7970",
+    "model": "VMX1001",
+    "status": "operational",
+    "companyId": "6652b33384b4949341f3da15"
+  }
+
+### Update a vending machine
+PUT http://localhost:3000/companies/6665098590a16465100f4a4a HTTP/1.1
+Content-Type: application/json
+
+{
+    "address": "Rexburg, Idaho",
+    "lat": "32.7767",
+    "long": "-96.7970",
+    "model": "VMX1001New",
+    "status": "maintenance",
+    "companyId": "6652b33384b4949341f3da15"
+}
+
+### Delete a vending machine
+DELETE http://localhost:3000/companies/6640434a6963a73879dc33de
+
+
+
+// *******************************
 // Server Calls
+// *******************************
+
+
 ### Get all companies
 GET https://cse341-p2-p2cj.onrender.com/companies
 
@@ -69,3 +123,45 @@ Content-Type: application/json
 
 ### Delete a company
 DELETE https://cse341-p2-p2cj.onrender.com/company/6640462abaf4f49f87c963da
+
+
+
+// ***** Vending Machines ******
+  
+### Get all vending machines
+GET https://cse341-p2-p2cj.onrender.com/vending
+
+
+### Get single vending machine
+GET https://cse341-p2-p2cj.onrender.com/vending/6665098590a16465100f4a4a
+
+
+
+### Create a vending machine
+POST https://cse341-p2-p2cj.onrender.com/vending HTTP/1.1
+content-type: application/json
+
+{
+    "address": "Idaho Falls, ID",
+    "lat": "32.7767",
+    "long": "-96.7970",
+    "model": "VMX1001",
+    "status": "operational",
+    "companyId": "6652b33384b4949341f3da15"
+}
+
+### Update a vending machine
+PUT https://cse341-p2-p2cj.onrender.com/companies/6665098590a16465100f4a4a HTTP/1.1
+Content-Type: application/json
+
+{
+    "address": "Rexburg, Idaho",
+    "lat": "32.7767",
+    "long": "-96.7970",
+    "model": "VMX1001New",
+    "status": "maintenance",
+    "companyId": "6652b33384b4949341f3da15"
+}
+
+### Delete a vending machine
+DELETE https://cse341-p2-p2cj.onrender.com/companies/6640434a6963a73879dc33de

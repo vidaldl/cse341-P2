@@ -24,7 +24,17 @@ const validateVendingMachineId = [
   }).withMessage('Invalid vending machine ID')
 ];
 
+const validateCompanyIdParam = [
+  param('companyId').custom(value => {
+    if (!ObjectId.isValid(value)) {
+      throw new Error('Invalid company ID');
+    }
+    return true;
+  }).withMessage('Invalid company ID')
+];
+
 module.exports = {
   validateVendingMachine,
-  validateVendingMachineId
+  validateVendingMachineId,
+  validateCompanyIdParam
 };

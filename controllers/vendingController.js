@@ -1,6 +1,6 @@
 const mongodb = require('../db/connect');
 const { ObjectId } = require('mongodb'); 
-const { handleValidationErrors } = require('../middleware/errorHandler');
+
 
 const getVendingMachines = async (req, res, next) => {
   try {
@@ -17,7 +17,7 @@ const getVendingMachines = async (req, res, next) => {
 const getVendingMachineById = async (req, res, next) => {
     try {
       const machineID = req.params.id;
-      console.log(`Fetching vending machine with ID: ${machineID}`);
+
   
       const db = mongodb.getDb().db("vendingManagement");
       const collection = db.collection('vending_machines');
@@ -34,9 +34,30 @@ const getVendingMachineById = async (req, res, next) => {
     }
   };
 
+  const getVendingMachinesByCompanyId = async (req, res, next) => {
+    try {
+      const companyId = req.params.companyId;
+  
+      if (!ObjectId.isValid(companyId)) {
+        return res.status(400).json({ message: 'Invalid company ID format' });
+      }
+  
+      const db = mongodb.getDb().db("vendingManagement");
+      const collection = db.collection('vending_machines');
+      const result = await collection.find({ companyId: new ObjectId(companyId) }).toArray();
+  
+      if (result.length === 0) {
+        return res.status(404).json({ message: 'No vending machines found for this company' });
+      }
+  
+      res.status(200).json(result);
+    } catch (err) {
+      next(err);
+    }
+  };
+
   const createVendingMachine = async (req, res, next) => {
     try {
-      handleValidationErrors(req, res, next);
   
       const machine = {
         location: {
@@ -65,7 +86,6 @@ const getVendingMachineById = async (req, res, next) => {
 
   const updateVendingMachine = async (req, res, next) => {
     try {
-      handleValidationErrors(req, res, next);
   
       const machineId = new ObjectId(req.params.id); 
       const updatedMachine = {
@@ -120,5 +140,6 @@ const getVendingMachineById = async (req, res, next) => {
     getVendingMachineById,
     createVendingMachine,
     updateVendingMachine,
-    deleteVendingMachine
+    deleteVendingMachine,
+    getVendingMachinesByCompanyId
   };
