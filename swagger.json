@@ -10,6 +10,15 @@
   "schemes": [
     "https"
   ],
+  "securityDefinitions": {
+    "auth0": {
+      "type": "oauth2",
+      "authorizationUrl": "https://dev-3spjq07b2t223qop.us.auth0.com/authorize",
+      "tokenUrl": "https://dev-3spjq07b2t223qop.us.auth0.com/oauth/token",
+      "flow": "implicit",
+      "scopes": {}
+    }
+  },
   "paths": {
     "/api-docs": {
       "get": {
@@ -335,5 +344,10 @@
         }
       }
     }
-  }
+  },
+  "security": [
+    {
+      "auth0": []
+    }
+  ]
 }

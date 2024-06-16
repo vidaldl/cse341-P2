@@ -3,6 +3,21 @@ const app = express();
 const bodyParser = require('body-parser');
 const { errorHandler } = require('./middleware/errorHandler');
 const port = 3000;
+const dotenv = require('dotenv');
+dotenv.config();
+
+
+// Auth Setup
+const { auth } = require('express-openid-connect');
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: process.env.AUTH0_SECRET,
+  baseURL: 'http://localhost:3000',
+  clientID: 'cnRHoVV850wSQzi9TzXDxic05xgsgsBM',
+  issuerBaseURL: 'https://dev-3spjq07b2t223qop.us.auth0.com'
+};
+
 
 // Routes
 app
@@ -11,6 +26,7 @@ app
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
   })
+  .use(auth(config))
   .use('/', require('./routes'))
   .use(errorHandler);
 
