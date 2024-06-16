@@ -13,7 +13,7 @@ const config = {
   authRequired: false,
   auth0Logout: true,
   secret: process.env.AUTH0_SECRET,
-  baseURL: 'http://localhost:3000',
+  baseURL: process.env.AUTH0_BASE_URL,
   clientID: 'cnRHoVV850wSQzi9TzXDxic05xgsgsBM',
   issuerBaseURL: 'https://dev-3spjq07b2t223qop.us.auth0.com'
 };
